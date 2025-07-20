@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - 常见问题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #37352f;
+            background: #ffffff;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+
+        /* 页面头部 */
+        .page-header {
+            margin-bottom: 32px;
+            border-bottom: 1px solid #e9e9e7;
+            padding-bottom: 24px;
+        }
+
+        .page-title h1 {
+            font-size: 40px;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 8px;
+        }
+
+        .page-subtitle {
+            color: #787774;
+            font-size: 14px;
+        }
+
+        /* 语言切换器 */
+        .language-switcher {
+            margin-top: 16px;
+        }
+
+        .lang-options {
+            display: flex;
+            gap: 8px;
+        }
+
+        .lang-option {
+            padding: 6px 12px;
+            border: 1px solid #e9e9e7;
+            border-radius: 6px;
+            background: transparent;
+            color: #787774;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.0), color 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.0), border-color 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.0);
+        }
+
+        .lang-option:hover {
+            background: #f7f7f5;
+        }
+
+        .lang-option.active {
+            background: #000000;
+            color: #ffffff;
+            border-color: #000000;
+        }
+
+        /* FAQ内容 */
+        .faq-container {
+            margin-top: 40px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #f1f1ef;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            padding: 20px 0;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 16px;
+            transition: color 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.0);
+        }
+
+        .faq-question:hover {
+            color: #000000;
+        }
+
+        .faq-question-text {
+            font-weight: 600;
+            font-size: 16px;
+            flex: 1;
+        }
+
+        .faq-icon {
+            font-size: 16px;
+            color: #787774;
+            transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.0);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.0);
+            color: #37352f;
+            line-height: 1.7;
+        }
+
+        .faq-answer-content {
+            padding-bottom: 24px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 800px;
+        }
+
+        .faq-answer ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .faq-answer li {
+            margin: 8px 0;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .faq-answer li:before {
+            content: "•";
+            color: #000000;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .contact-info {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid #e9e9e7;
+        }
+
+        .contact-info h3 {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #000000;
+        }
+
+        .contact-info p {
+            color: #787774;
+            margin-bottom: 8px;
+        }
+
+        .contact-info a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* 语言内容切换 */
+        .lang-content {
+            display: none;
+        }
+
+        .lang-content.active {
+            display: block;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 640px) {
+            .container {
+                padding: 40px 16px;
+            }
+
+            .page-title h1 {
+                font-size: 32px;
+            }
+
+            .faq-question-text {
+                font-size: 15px;
+            }
+
+            .lang-options {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 中文版本 -->
+        <div class="lang-content active" id="content-zh">
+            <div class="page-header">
+                <div class="page-title">
+                    <h1>常见问题</h1>
+                </div>
+                <div class="page-subtitle">最后更新于2025年7月20日</div>
+                <div class="language-switcher">
+                    <div class="lang-options">
+                        <button class="lang-option active" onclick="switchLanguage('zh')">中文</button>
+                        <button class="lang-option" onclick="switchLanguage('en')">English</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <div class="faq-question-text">识别不够准确（错别字、漏字）</div>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <ul>
+                                <li>重新识别一次。文字识别的过程中使用了机器学习技术，因此每次识别的结果都会稍有不同。</li>
+                                <li>适当放大内容之后再进行截图。图片过小和图片质量过低是识别不准确的主要原因。</li>
+                                <li>在Glance的"设置-语言"中关闭自动检测语言，手动进行识别语言的设置。仅勾选所需的一种语言，或按照提示中的说明自行设定。</li>
+                                <li>升级macOS系统。Glance使用系统提供的文字识别框架，升级到最新的操作系统会提升识别准确度。</li>
+                                <li>确保图片中的文字没有过大的歪斜或遮挡等。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <div class="faq-question-text">自动分段不够准确</div>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <ul>
+                                <li>重新识别一次。文字识别的过程中使用了机器学习技术，因此每次识别的结果都会稍有不同。</li>
+                                <li>在Glance的"设置-通用"中调整分段灵敏度。灵敏度越低则分段中换行越少，越稳定；越高则分段中换行越多，可能会出现误判的情况。</li>
+                                <li>适当放大内容之后再进行截图。图片过小和图片质量过低是自动分段不准确的原因之一。</li>
+                                <li>截图时不要包含过多无关内容，比如空白。</li>
+                                <li>确保图片中的文字没有过大的歪斜或透视效果。自动分段的算法目前难以处理具有倾斜角度的文本和竖排文本。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <div class="faq-question-text">进行文字识别时，有时候截图会反应很慢</div>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <ul>
+                                <li>Glance使用系统提供的截图框架，因此反应速度慢通常是系统原因，取决于当前系统的负载和调度情况。</li>
+                                <li>重新启动Mac可以解决这个问题。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <div class="faq-question-text">文字识别没有反应或没有识别内容</div>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <ul>
+                                <li>在"系统设置-隐私与安全性-录屏与系统录音"中检查是否授予Glance权限，如果没有请点击"+"添加Glance。</li>
+                                <li>如果已授予Glance权限但仍无法识别，请点击"-"移除Glance然后再次添加。</li>
+                                <li>确保截图包含清晰的文字内容。</li>
+                                <li>检查图片质量，避免模糊或过小的文字。</li>
+                                <li>确认选择了正确的识别语言。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <div class="faq-question-text">发送功能无法使用</div>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <ul>
+                                <li>在Glance的"设置-发送"中查看当前设定的发送链接，确保链接不为空且格式正确。</li>
+                                <li>确保链接指向的网站或应用程序可以正常访问。有些网站或应用程序不支持在链接中加入过长的内容。</li>
+                                <li>尝试更换发送链接。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <div class="faq-question-text">按下快捷键没有反应</div>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <ul>
+                                <li>在Glance的"设置-快捷键"中查看当前设定的快捷键，确保没有和常用的应用程序快捷键、系统快捷键冲突。</li>
+                                <li>点击相应的快捷键右边的"✕"按钮，然后重新设定快捷键。</li>
+                                <li>如果没有反应的是发送功能的快捷键，请先检查发送功能是否配置正常。</li>
+                                <li>尝试使用其他快捷键。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-info">
+                <h3>联系方式</h3>
+                <p>若以上问题无法解答疑问，可以考虑与开发者联系：</p>
+                <p>邮箱：<a href="mailto:venoritcas@qq.com">venoritcas@qq.com</a></p>
+            </div>
+        </div>
+
+        <!-- 英文版本 -->
+        <div class="lang-content" id="content-en">
+            <div class="page-header">
+                <div class="page-title">
+                    <h1>Frequently Asked Questions</h1>
+                </div>
+                <div class="page-subtitle">Last updated July 20, 2025</div>
+                <div class="language-switcher">
+                    <div class="lang-options">
+                        <button class="lang-option" onclick="switchLanguage('zh')">中文</button>
+                        <button class="lang-option active" onclick="switchLanguage('en')">English</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <div class="faq-question-text">Recognition is Not Accurate Enough</div>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <ul>
+                                <li>Try text recognition again. Text recognition uses machine learning technology, so
+                                    results may vary slightly each time.</li>
+                                <li>Enlarge the content appropriately before taking a screenshot. Images that are too
+                                    small or of low quality are the main cause of inaccurate recognition.</li>
+                                <li>In Glance's "Settings > Language", turn off automatic language detection and
+                                    manually set the recognition language. Only check one required language or set it
+                                    according to the instructions.</li>
+                                <li>Upgrade the macOS system. Glance uses the system's text recognition framework,
+                                    upgrading to the latest operating system will improve recognition accuracy.</li>
+                                <li>Ensure that the text in the image is not severely skewed or obstructed.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <div class="faq-question-text">Automatic Segmentation is Not Accurate Enough</div>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <ul>
+                                <li>Try text recognition again. Text recognition uses machine learning technology, so
+                                    results may vary slightly each time.</li>
+                                <li>Adjust the segmentation sensitivity in Glance's "Settings > General". Lower
+                                    sensitivity means fewer line breaks in segments and greater stability, whereas
+                                    higher sensitivity means more line breaks, which may result in misjudgements.</li>
+                                <li>Enlarge the content appropriately before taking a screenshot. Images that are too
+                                    small or of low quality can result in inaccurate automatic segmentation.</li>
+                                <li>When taking screenshots, avoid including too much irrelevant content, such as blank
+                                    spaces.</li>
+                                <li>Ensure the text in the image isn't excessively skewed or distorted. The automatic
+                                    segmentation algorithm currently has difficulty handling text with tilt angles and
+                                    vertical text.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <div class="faq-question-text">Screenshot Sometimes Responds Slowly</div>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <ul>
+                                <li>Glance uses the system's screenshot framework, so slow response times are usually
+                                    due to system-related issues, depending on the current system load and scheduling.
+                                </li>
+                                <li>Rebooting your Mac can solve this problem.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <div class="faq-question-text">Text Recognition Shows No Content</div>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <ul>
+                                <li>Check whether Glance has been granted permission in "System Settings-Privacy and
+                                    Security-Screen Recording and System Recording". If not, click "+" to add
+                                    Glance.</li>
+                                <li>If Glance has been granted permission but is still not recognized, click "-" to
+                                    remove Glance and then add it again.</li>
+                                <li>Ensure the screenshot contains clear text.</li>
+                                <li>Check the image quality and avoid blurry or illegible text.</li>
+                                <li>Confirm that the correct recognition language is selected.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <div class="faq-question-text">Send Function Cannot Be Used</div>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <ul>
+                                <li>Check the currently set send link in Glance's "Settings > Send" to ensure the link
+                                    is not empty and the format is correct.</li>
+                                <li>Ensure that the website or application pointed to by the link can be accessed
+                                    normally. Some websites or applications do not support adding overly long content in
+                                    links.</li>
+                                <li>Try changing the send link.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <div class="faq-question-text">No Response When Pressing Shortcuts</div>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            <ul>
+                                <li>Check the currently set shortcuts in Glance's "Settings > Shortcuts" to ensure there
+                                    are no conflicts with commonly used application shortcuts or system shortcuts.</li>
+                                <li>Click the "✕" button to the right of the corresponding shortcut, then reset the
+                                    shortcut.</li>
+                                <li>If the send function shortcut is not responding, please first check if the send
+                                    function is configured properly.</li>
+                                <li>Try using other shortcuts.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-info">
+                <h3>Contact</h3>
+                <p>If the above information doesn't answer your question, please contact us through:</p>
+                <p>Email: <a href="mailto:venoritcas@gmail.com">venoritcas@gmail.com</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 语言切换功能
+        let currentLanguage = 'zh';
+
+        // 检测浏览器语言并设置默认语言
+        function detectBrowserLanguage() {
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('en')) {
+                switchLanguage('en');
+            } else {
+                switchLanguage('zh');
+            }
+        }
+
+        // 切换语言
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+
+            // 隐藏所有语言内容
+            const allContent = document.querySelectorAll('.lang-content');
+            allContent.forEach(content => content.classList.remove('active'));
+
+            // 显示选中语言的内容
+            document.getElementById(`content-${lang}`).classList.add('active');
+
+            // 更新语言选项状态
+            const allLangOptions = document.querySelectorAll('.lang-option');
+            allLangOptions.forEach(option => option.classList.remove('active'));
+
+            // 激活当前语言选项
+            const currentOptions = document.querySelectorAll(`[onclick="switchLanguage('${lang}')"]`);
+            currentOptions.forEach(option => option.classList.add('active'));
+
+            // 更新页面属性
+            if (lang === 'zh') {
+                document.documentElement.lang = 'zh-CN';
+                document.title = 'FAQ - 常见问题';
+            } else {
+                document.documentElement.lang = 'en';
+                document.title = 'FAQ - Frequently Asked Questions';
+            }
+
+            // 保存语言偏好到本地
+            if (typeof (Storage) !== "undefined") {
+                localStorage.setItem('preferredLanguage', lang);
+            }
+        }
+
+        // 切换FAQ项目
+        function toggleFAQ(element) {
+            const faqItem = element.parentNode;
+            const answer = faqItem.querySelector('.faq-answer');
+
+            if (faqItem.classList.contains('active')) {
+                // 正在收起：先设置 max-height 为当前高度，再设为 0
+                answer.style.maxHeight = answer.scrollHeight + "px";
+                requestAnimationFrame(() => {
+                    faqItem.classList.remove('active');
+                    answer.style.maxHeight = "0px";
+                });
+            } else {
+                // 正在展开：先加 active，再设置 max-height 为 scrollHeight
+                faqItem.classList.add('active');
+                answer.style.maxHeight = answer.scrollHeight + "px";
+            }
+        }
+
+        // 页面加载时的初始化
+        document.addEventListener('DOMContentLoaded', function () {
+            // 检查是否有保存的语言偏好
+            if (typeof (Storage) !== "undefined") {
+                const savedLang = localStorage.getItem('preferredLanguage');
+                if (savedLang) {
+                    switchLanguage(savedLang);
+                    return;
+                }
+            }
+
+            // 如果没有保存的偏好，则检测浏览器语言
+            detectBrowserLanguage();
+        });
+
+        // 键盘快捷键支持
+        document.addEventListener('keydown', function (event) {
+            // Alt + L 切换语言
+            if (event.altKey && event.key === 'l') {
+                event.preventDefault();
+                const nextLang = currentLanguage === 'zh' ? 'en' : 'zh';
+                switchLanguage(nextLang);
+            }
+        });
+    </script>
+</body>
+
+</html>

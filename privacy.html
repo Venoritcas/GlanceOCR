@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隐私政策 - Privacy Policy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #37352f;
+            background: #ffffff;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+
+        /* 页面头部 */
+        .page-header {
+            margin-bottom: 32px;
+            border-bottom: 1px solid #e9e9e7;
+            padding-bottom: 24px;
+        }
+
+        .page-title h1 {
+            font-size: 40px;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 8px;
+        }
+
+        .page-subtitle {
+            color: #787774;
+            font-size: 14px;
+        }
+
+        /* 语言切换器 */
+        .language-switcher {
+            margin-top: 16px;
+        }
+
+        .lang-options {
+            display: flex;
+            gap: 8px;
+        }
+
+        .lang-option {
+            padding: 6px 12px;
+            border: 1px solid #e9e9e7;
+            border-radius: 6px;
+            background: transparent;
+            color: #787774;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.15s ease;
+        }
+
+        .lang-option:hover {
+            background: #f7f7f5;
+        }
+
+        .lang-option.active {
+            background: #000000;
+            color: #ffffff;
+            border-color: #000000;
+        }
+
+        /* 内容区域 */
+        .content-section {
+            margin-top: 40px;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .content-section p {
+            margin-bottom: 20px;
+            color: #37352f;
+        }
+
+        .contact-info {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid #e9e9e7;
+        }
+
+        .contact-info h3 {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 12px;
+            color: #000000;
+        }
+
+        .contact-info p {
+            color: #787774;
+            margin-bottom: 8px;
+        }
+
+        .contact-info a {
+            color: #000000;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* 语言内容切换 */
+        .lang-content {
+            display: none;
+        }
+
+        .lang-content.active {
+            display: block;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 640px) {
+            .container {
+                padding: 40px 16px;
+            }
+
+            .page-title h1 {
+                font-size: 32px;
+            }
+
+            .language-switcher {
+                position: static;
+                margin-top: 16px;
+            }
+
+            .lang-options {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- 中文版本 -->
+        <div class="lang-content active" id="content-zh">
+            <div class="page-header">
+                <div class="page-title">
+                    <h1>隐私政策</h1>
+                </div>
+                <div class="page-subtitle">最后更新于2025年7月20日</div>
+                <div class="language-switcher">
+                    <div class="lang-options">
+                        <button class="lang-option active" onclick="switchLanguage('zh')">中文</button>
+                        <button class="lang-option" onclick="switchLanguage('en')">English</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <p>本应用不收集任何形式的用户数据。</p>
+
+                <p>本应用在设计时就充分考虑了用户隐私保护，所有功能均在您的设备本地运行，不会向任何服务器发送、存储或处理您的个人信息、使用数据或任何其他形式的用户数据。</p>
+
+                <p>您可以放心使用本应用。</p>
+            </div>
+
+            <div class="contact-info">
+                <h3>联系方式</h3>
+                <p>如果您对本隐私政策有任何疑问，请通过以下方式联系开发者：</p>
+                <p>邮箱：<a href="mailto:venoritcas@qq.com">venoritcas@qq.com</a></p>
+            </div>
+        </div>
+
+        <!-- 英文版本 -->
+        <div class="lang-content" id="content-en">
+            <div class="page-header">
+                <div class="page-title">
+                    <h1>Privacy Policy</h1>
+                </div>
+                <div class="page-subtitle">Last updated: July 20, 2025</div>
+                <div class="language-switcher">
+                    <div class="lang-options">
+                        <button class="lang-option" onclick="switchLanguage('zh')">中文</button>
+                        <button class="lang-option active" onclick="switchLanguage('en')">English</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <p>This application does not collect any form of user data.</p>
+
+                <p>This application has been designed with privacy
+                    protection in mind from the ground up. All features run locally on your device and do not send,
+                    store, or process your personal information, usage data, or any other form of user data to any
+                    servers.</p>
+
+                <p>You can use this application with confidence that your privacy will be fully protected.</p>
+            </div>
+
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p>If you have any questions about this Privacy Policy, please contact us through:</p>
+                <p>Email: <a href="mailto:venoritcas@gmail.com">venoritcas@gmail.com</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 语言切换功能
+        let currentLanguage = 'zh';
+
+        // 检测浏览器语言并设置默认语言
+        function detectBrowserLanguage() {
+            const browserLang = navigator.language || navigator.userLanguage;
+            if (browserLang.startsWith('en')) {
+                switchLanguage('en');
+            } else {
+                switchLanguage('zh');
+            }
+        }
+
+        // 切换语言
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+
+            // 隐藏所有语言内容
+            const allContent = document.querySelectorAll('.lang-content');
+            allContent.forEach(content => content.classList.remove('active'));
+
+            // 显示选中语言的内容
+            document.getElementById(`content-${lang}`).classList.add('active');
+
+            // 更新语言选项状态
+            const allLangOptions = document.querySelectorAll('.lang-option');
+            allLangOptions.forEach(option => option.classList.remove('active'));
+
+            // 激活当前语言选项
+            const currentOptions = document.querySelectorAll(`[onclick="switchLanguage('${lang}')"]`);
+            currentOptions.forEach(option => option.classList.add('active'));
+
+            // 更新页面属性
+            if (lang === 'zh') {
+                document.documentElement.lang = 'zh-CN';
+                document.title = '隐私政策 - Privacy Policy';
+            } else {
+                document.documentElement.lang = 'en';
+                document.title = 'Privacy Policy - 隐私政策';
+            }
+
+            // 保存语言偏好到本地（注意：这里使用内存存储而不是localStorage）
+            window.preferredLanguage = lang;
+        }
+
+        // 页面加载时的初始化
+        document.addEventListener('DOMContentLoaded', function () {
+            // 检查是否有保存的语言偏好
+            if (window.preferredLanguage) {
+                switchLanguage(window.preferredLanguage);
+                return;
+            }
+
+            // 如果没有保存的偏好，则检测浏览器语言
+            detectBrowserLanguage();
+        });
+
+        // 键盘快捷键支持
+        document.addEventListener('keydown', function (event) {
+            // Alt + L 切换语言
+            if (event.altKey && event.key === 'l') {
+                event.preventDefault();
+                const nextLang = currentLanguage === 'zh' ? 'en' : 'zh';
+                switchLanguage(nextLang);
+            }
+        });
+    </script>
+</body>
+
+</html>
